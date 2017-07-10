@@ -1,0 +1,169 @@
+package com.lin.myJava;
+
+import java.util.Scanner;
+public class Zcx {
+	public static void main(String[] args){
+		A a=new A();
+		C c=new C();
+		String[] names = {"奥迪A4", "马自达6", "皮卡雪", "金龙", "松花江", "依维柯"};
+		int[] prices = {500, 400, 450, 800, 400, 1000};
+		int[] rooms = {4, 4, 2, 0, 0, 0};
+		int[] cccs = {0, 0, 0, 20, 4, 20};
+		Qc[] c3=new Qc[6];
+		for(int i=0;i<c3.length;i++){
+			Qc car = new Qc(names[i], prices[i], rooms[i], cccs[i]);
+			c3[i] = car;
+		}
+		Scanner in=new Scanner(System.in);
+		while(true){
+			a.a();
+			int number=in.nextInt();
+			if(number == 1){
+				a.b(c3);
+				a.c();
+				int number1=in.nextInt();
+				if(number1 > 0 && number1 < 7)
+					c.ca(number1,c3);  
+				else
+					System.out.println("无此型号的车辆");
+				//c.cb();
+			}
+			else if(number==0){
+				System.exit(0);
+			}
+			else{
+				System.out.println("输入错误");
+			}
+			System.exit(0);
+		}
+	}
+	
+}
+
+class A{
+	
+	void a(){
+		System.out.println("欢迎使用答答租车系统");
+		System.out.println("您是否要租车：1是 0否");
+	}	
+	void b(Qc[] c3){
+		System.out.println("您可租车的类型及其价目表：");
+		System.out.println("序号   汽车名称       租金             容量");
+		for(int i=0;i<c3.length;i++){
+			System.out.println("1."+"    "+c3[i].getName()+"    "+c3[i].getPrice()+"/天"+"    载人："+c3[i].getRoom()+"人    载货："+c3[i].getCcc()+"吨");
+		}
+	}
+	void c(){
+		System.out.println("请输入您要租汽车的数量：");
+	}
+	void d(){
+		B.ba("请输入租车天数：");
+	}
+	void e(){
+		B.ba("您的账单：");
+	}
+}
+class B{
+	static void ba(String replay){
+		System.out.println(replay);
+	}
+	static void ba(int number){
+		System.out.println("请输入第"+number+"辆车的序号");
+	}
+	static void ba(int a,int b){
+		System.out.println("总金额："+a+"元");
+		System.out.println("总载货量："+b+"吨");
+	}
+}
+
+class  C{
+	
+
+	Scanner in=new Scanner(System.in);
+	
+	void ca(int number,Qc[] c3){
+		Qc[] c1=new Qc[number];;
+		for(int i=0;i<number;i++){
+			
+			B.ba(i+1);
+			int c2=in.nextInt();
+			//c1[i]=c3[c2-1];
+			c1[i]=c3[c2-1];
+			System.out.println(c1[i].getName());
+			System.out.println(c1[i].getPrice());
+		}	
+	//}
+	//public void cb(){
+		int cb1=0;
+		int cb2=0;
+		int cb3=0;
+		for(int x=0;x<c1.length;x++){
+			//System.out.println(c1[x].getName());
+			//System.out.println(c1[x].getPrice());
+			
+				cb1+=c1[x].getPrice();
+			}
+		B.ba("总金额是:"+cb1+"元");
+		for(int i=0;i<c1.length;i++){
+		if(c1[i].getRoom()!=0){
+				cb2+=c1[i].getRoom();
+			}
+		}
+		B.ba("总载人量是："+cb2+"人"+"\n"+"车型分别是：");
+		for(int i=0;i<c1.length;i++){
+			if(c1[i].getRoom()!=0){
+				System.out.print(c1[i].getName()+"\t");
+			}else{continue;}
+		}
+		System.out.println();
+		for(int i=0;i<c1.length;i++){
+			if(c1[i].getCcc()!=0){
+				cb3+=c1[i].getCcc();
+			}
+		}
+		B.ba("总载货量是："+cb3+"吨"+"\n"+"车型分别是：");
+		for(int i=0;i<c1.length;i++){
+			if(c1[i].getCcc()!=0){
+				System.out.print(c1[i].getName()+"\t");
+			}else{continue;}
+		}
+	}}
+
+class Qc{
+	private String name;
+	private int price;
+	private int room;
+	private int ccc;
+	
+	public Qc(String name, int price, int room, int ccc){
+		this.name = name;
+		this.price = price;
+		this.room = room;
+		this.ccc = ccc;
+	}
+	
+	public int getCcc() {
+		return ccc;
+	}
+	public void setCcc(int ccc) {
+		this.ccc = ccc;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getRoom() {
+		return room;
+	}
+	public void setRoom(int room) {
+		this.room = room;
+	}
+	public void  setName(String name){
+		this.name=name;
+	}
+	public String getName(){
+		return name;
+	}
+}
