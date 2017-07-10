@@ -125,7 +125,16 @@
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
-		<Context docBase="E:\Tomcat_JSP\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="E:\Tomcat_JSP\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TomcatTest" path="/TomcatTest" reloadable="true" source="org.eclipse.jst.jee.server:TomcatTest"/>
+		<Context docBase="E:\Git\learning\Tomcat_JSP\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="E:\Git\learning\Tomcat_JSP\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TomcatTest" path="/TomcatTest" reloadable="true" source="org.eclipse.jst.jee.server:TomcatTest">
+			<Manager className="org.apache.catalina.session.PersistentManager">
+				debug=0		
+				saveOnRestart=&quot;true&quot;
+				maxActionSession=&quot;-1&quot;
+				minldleSwap=&quot;-1&quot;
+				maxldleSwap=&quot;-1&quot;
+				maxldleBackup=&quot;-1&quot;
+			</Manager>
+		</Context>
       </Host>
     </Engine>
   </Service>

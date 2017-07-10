@@ -4664,6 +4664,7 @@
   <!-- deployment descriptor, that list *replaces* the list configured      -->
   <!-- here, so be sure to include any of the default values that you wish  -->
   <!-- to use within your application.                                       -->
+
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>RegisteredUsers</web-resource-name>
