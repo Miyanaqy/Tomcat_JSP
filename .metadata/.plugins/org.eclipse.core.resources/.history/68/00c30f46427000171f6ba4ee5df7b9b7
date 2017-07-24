@@ -36,8 +36,8 @@
   	<filter-name>simple</filter-name>
   	<filter-class>org.lxh.filterdemo.SimpleTilter</filter-class>
   	<init-param>
-  		<param-name>charset</param-name>
-  		<param-value>UTF-8</param-value>
+  		<param-name>ref</param-name>
+  		<param-value>HELLOMLDN</param-value>
   	</init-param>
   </filter>
   <filter-mapping>
