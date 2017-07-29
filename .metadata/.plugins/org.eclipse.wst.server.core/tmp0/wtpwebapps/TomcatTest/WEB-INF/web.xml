@@ -46,5 +46,10 @@
 			<taglib-uri>tag_attribute</taglib-uri>
 			<taglib-location>/WEB-INF/attributetag.tld</taglib-location>
 		</taglib>
+		<taglib>
+			<taglib-uri>tag_simple</taglib-uri>
+			<taglib-location>/WEB-INF/simpletag.tld</taglib-location>
+		
+		</taglib>
 	</jsp-config>
 </web-app>
