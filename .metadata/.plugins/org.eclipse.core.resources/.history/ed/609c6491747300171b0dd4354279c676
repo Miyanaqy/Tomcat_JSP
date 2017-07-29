@@ -1,0 +1,24 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.*"%>
+<%@ taglib prefix="mytag" uri="tag_attribute" %>
+<html>
+<head><title>Iterate Tag</title></head>
+<body>
+	<%
+	List<String> all = new ArrayList<String>();
+	all.add("one");
+	all.add("two");
+	all.add("three");
+	request.setAttribute("all", all);
+	%>
+	<%
+	request.setAttribute("allusers", "王台");
+    %>
+
+		<mytag:iterate id="url" name="all" scope="request">
+			<h3>number: ${url}</h3>
+			<h3>${allusers}</h3>
+		</mytag:iterate>
+
+</body>
+</html>
