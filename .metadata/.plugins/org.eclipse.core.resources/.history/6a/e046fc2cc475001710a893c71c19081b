@@ -1,0 +1,8 @@
+<%@ page contentType="text/html"pageEncoding="UTF-8"%>
+<html>
+<head><title>c import</title></head>
+<body>
+<h3>name参数：${param.name}</h3>
+<h3>url参数：${param.url}</h3>
+</body>
+</html>

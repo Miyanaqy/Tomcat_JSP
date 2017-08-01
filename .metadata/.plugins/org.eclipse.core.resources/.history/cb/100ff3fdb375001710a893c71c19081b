@@ -1,0 +1,14 @@
+<%@ page contentType="text/html;charset=UTF-8"　%>
+<%@ page import="com.lin.jstl.*" %>
+<%@ taglib uri="tag_jstl_c" prefix="c" %>
+<html>
+<head><title>set JSDL bean tag</title></head>
+<body>
+<%
+SimpleInfo sim = new SimpleInfo();
+request.setAttribute("simple", sim);
+
+%>
+
+</body>
+</html>

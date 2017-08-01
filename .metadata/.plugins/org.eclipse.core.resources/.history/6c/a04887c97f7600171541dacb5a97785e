@@ -1,0 +1,10 @@
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="tag_jstl_c" prefix="c"　%>
+<%@ taglib uri="tag_jstl_x" prefix="x" %>
+<html>
+<head><title>JSTL XML tag</title></head>
+<body>
+<c:import var="add" url="/address.xml"
+
+</body>
+</html>

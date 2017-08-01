@@ -1,0 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="mytag" uri="tag_simple" %>
+<html>
+<head><title>dynamic add tag</title></head>
+<body>
+	<h2>计算结果:
+		<mytag:add num1=“11.2” num2="12.3" num3="13.5" />
+	</h2>
+</body>
+</html>

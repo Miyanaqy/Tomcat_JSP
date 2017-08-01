@@ -1,0 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@　taglib prefix="c" uri-"tag_jstl_c" %>
+<HTML>
+<head><title>hello JSTL tag</title></head>
+<body>
+<h2><c:out value="Hello MLDN !!!"></c:out></h2>
+</body>
+</HTML>

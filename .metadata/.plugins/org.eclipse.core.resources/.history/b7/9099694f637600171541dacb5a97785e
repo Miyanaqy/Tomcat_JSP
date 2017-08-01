@@ -1,0 +1,28 @@
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ taglib uri="tag_jstl_fmt" prefix="fmt"%>
+<html>
+<head><title>JSTL fmt tag</title></head>
+<body>
+<%
+	pageContext.setAttribute("date", new Date());
+%>
+<h3>中文日期显示：
+<fmt:setLocale value="zh_CN"/>
+<fmt:formatDate value="${date}"/>
+</h3>
+<h3>英文日期显示：
+<fmt:setLocale value="en_US"/>
+<fmt:formatDate value="${date}"/>
+</h3>
+<fmt:bundle basename="Message">
+<fmt:message key="name" var="nameref" />
+</fmt:bundle>
+<h3>姓名：${nameref}</h3>
+<fmt:bundle basename="Message">
+<fmt:message key="info" var="inforef">
+<fmt:param value="MLDN"/>
+</fmt:message>
+</fmt:bundle>
+</body>
+</html>

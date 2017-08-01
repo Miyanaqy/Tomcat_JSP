@@ -1,0 +1,94 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.*" %>
+<%@ taglib uri="tag_jstl_c" prefix="c" %>
+<html>
+<head><title>set JSTL tag</title></head>
+<body>
+<c:set var="info" value="Hello MLDN !!" scope="request" />
+<h2>属性内容：${info}</h2>
+<c:remove var="info" scope="request" />
+<h2>删除后：${info}</h2>
+<c:catch var="errmsg">
+<% int i = 10 / 0; %>
+</c:catch>
+<h2>异常讯息：${errmsg}</h2>
+<c:if test="${param.ref=='mldn'}" var="res1" scope="page">
+	<h2>欢迎${param.ref}光临!</h2>
+</c:if>
+<c:if test="${10<30}" var="res2">
+	<h2>10比30小！</h2>
+</c:if>
+<%
+	pageContext.setAttribute("num", 10);
+%>
+<c:choose>
+<c:when test="${num==10}">
+<h2>num1属性的内容是10!</h2>
+</c:when>
+<c:when test="${num==20}">
+<h2>num1属性的内容是20</h2>
+</c:when>
+<c:otherwise>
+<h3>没有一个条件满足</h3>
+</c:otherwise>
+</c:choose>
+<%
+String info[] = {"MLDN","MUN1","MUN2"};
+pageContext.setAttribute("ref",info);
+%>
+<h3>输出全部：
+<c:forEach items="${ref}" var="mem">
+${mem}、
+</c:forEach>
+<h3>间隔：
+<c:forEach items="${ref}" var="mem" step="2">
+${mem}、
+</c:forEach>
+</h3>
+<h3>输出前两个：
+<c:forEach items="${ref}" var="mem" begin="0" end="1">
+${mem}、
+</c:forEach>
+</h3>
+</h3>
+
+<%
+List all = new ArrayList();
+all.add("Mun1");
+all.add("Mun2");
+all.add("Mun3");
+pageContext.setAttribute("ref", all);
+%>
+<h3>输出全部：
+<c:forEach items="${ref}" var="mem">
+${mem}、
+</c:forEach>
+</h3>
+
+<%
+String i2 = "www.lin.com";
+pageContext.setAttribute("ref", i2);
+%>
+<h3>拆分的结果是：
+<c:forTokens items="${ref}" delims="." var="con">
+${con} .
+</c:forTokens>
+</h3>
+<h3>拆分的结果2：
+<c:forTokens items="LI;Xing;Hua" delims=";" var="con">
+${con} ,
+</c:forTokens>
+</h3>
+
+<c:import url="param.jsp" charEncoding="UTF-8">
+	<c:param name="name" value="Lin"/>
+	<c:param name="url" value="www.lin.com"/>
+</c:import>
+
+<c:url value="http://localhost:8080/TomcatTest/param.jsp" var="urlinfo">
+	<c:param name="author" value="LIN"/>
+	<c:param name="logo" value="mldn" />
+</c:url>
+<a href="${urlinfo}">新的地址</a>
+</body>
+</html>
